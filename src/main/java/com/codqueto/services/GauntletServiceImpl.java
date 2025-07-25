@@ -1,4 +1,4 @@
-package services;
+package com.codqueto.services;
 
 import com.codqueto.models.MindStone;
 import com.codqueto.models.PowerStone;
@@ -9,23 +9,32 @@ import com.codqueto.models.Stone;
 import com.codqueto.models.TimeStone;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.extern.java.Log;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.lang.reflect.Field;
 import java.util.Map;
 
 //@ServiceAdd commentMore actions
 @Log
-@AllArgsConstructor
+//@AllArgsConstructor
+@NoArgsConstructor
 @Getter
 public class GauntletServiceImpl implements GauntletService {
 
-    private final MindStone mindStone;
-    private final PowerStone powerStone;
-    private final RealityStone realityStone;
-    private final SoulStone soulStone;
-    private final SpaceStone spaceStone;
-    private final TimeStone timeStone;
+    @Autowired
+    private MindStone mindStone;
+    @Autowired
+    private PowerStone powerStone;
+    @Autowired
+    private RealityStone realityStone;
+    @Autowired
+    private SoulStone soulStone;
+    @Autowired
+    private SpaceStone spaceStone;
+    @Autowired
+    private TimeStone timeStone;
 
     @Override
     public void useGauntlet(String stoneName) {
