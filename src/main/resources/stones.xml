@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="mind" class="com.codqueto.models.MindStone" />
+    <bean id="power" class="com.codqueto.models.PowerStone" />
+    <bean id="reality" class="com.codqueto.models.RealityStone" />
+    <bean id="soul" class="com.codqueto.models.SoulStone" />
+    <bean id="space" class="com.codqueto.models.SpaceStone" />
+    <bean id="time" class="com.codqueto.models.TimeStone" />
+
+</beans>
