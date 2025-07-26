@@ -12,29 +12,41 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Field;
 import java.util.Map;
 
 //@ServiceAdd commentMore actions
 @Log
-//@AllArgsConstructor
-@NoArgsConstructor
 @Getter
+@Component
 public class GauntletServiceImpl implements GauntletService {
 
+    private final Stone mindStone;
+    private final Stone powerStone;
+    private final Stone realityStone;
+    private final Stone soulStone;
+    private final Stone spaceStone;
+    private final Stone timeStone;
+
     @Autowired
-    private MindStone mindStone;
-    @Autowired
-    private PowerStone powerStone;
-    @Autowired
-    private RealityStone realityStone;
-    @Autowired
-    private SoulStone soulStone;
-    @Autowired
-    private SpaceStone spaceStone;
-    @Autowired
-    private TimeStone timeStone;
+    public GauntletServiceImpl(
+            @Qualifier("mind") Stone mindStone,
+            @Qualifier("power") Stone powerStone,
+            @Qualifier("reality") Stone realityStone,
+            @Qualifier("soul") Stone soulStone,
+            @Qualifier("space") Stone spaceStone,
+            @Qualifier("time") Stone timeStone
+    ) {
+        this.mindStone = mindStone;
+        this.powerStone = powerStone;
+        this.realityStone = realityStone;
+        this.soulStone = soulStone;
+        this.spaceStone = spaceStone;
+        this.timeStone = timeStone;
+    }
 
     @Override
     public void useGauntlet(String stoneName) {

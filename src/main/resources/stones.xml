@@ -20,6 +20,6 @@
     <bean id="time" class="com.codqueto.models.TimeStone" />
 
     <bean id="gauntlet"  class="com.codqueto.services.GauntletServiceImpl"
-          autowire="byName"/>
+          autowire="constructor"/>
 
 </beans>

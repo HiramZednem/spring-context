@@ -1,5 +1,6 @@
 package com.codqueto;
 
+import com.codqueto.configs.StonesConfigs;
 import com.codqueto.models.MindStone;
 import com.codqueto.models.PowerStone;
 import com.codqueto.models.RealityStone;
@@ -7,6 +8,7 @@ import com.codqueto.models.SoulStone;
 import com.codqueto.models.SpaceStone;
 import com.codqueto.models.TimeStone;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.codqueto.services.GauntletService;
 import com.codqueto.services.GauntletServiceImpl;
@@ -15,11 +17,20 @@ import com.codqueto.services.GauntletServiceImpl;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        final ApplicationContext applicationContext = new ClassPathXmlApplicationContext("stones.xml");
 
-        GauntletServiceImpl gauntletService = applicationContext.getBean("gauntlet", GauntletServiceImpl.class);
+        final AnnotationConfigApplicationContext applicationContext =
+                new AnnotationConfigApplicationContext(StonesConfigs.class);
+
+        final GauntletService gauntletService = applicationContext.getBean(GauntletServiceImpl.class);
         gauntletService.useFullPower();
-        gauntletService.useGauntlet("mind");
+
+//        final ApplicationContext applicationContext = new AnnotationConfigApplicationContext(StonesConfigs.class);
+//
+////        final ApplicationContext applicationContext = new ClassPathXmlApplicationContext("stones.xml");
+//
+//        GauntletServiceImpl gauntletService = applicationContext.getBean("gauntlet", GauntletServiceImpl.class);
+//        gauntletService.useFullPower();
+//        gauntletService.useGauntlet("mind");
 //        ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("stones.xml");
 //
 //        final MindStone mind = applicationContext.getBean("mind", MindStone.class);
